@@ -1,4 +1,4 @@
-// File: D:\Reactjs_HUBONE\client-portal\app\page.tsx
+// File: D:\Reactjs_HUBONE\ReactAPP\app\page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
