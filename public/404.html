@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mySage Client Portal</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid #e2e8f0;
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        h2 {
+            color: #1e293b;
+            margin: 0 0 0.5rem;
+            font-size: 1.25rem;
+        }
+        p {
+            color: #64748b;
+            margin: 0;
+            font-size: 0.875rem;
+        }
+    </style>
+    <script>
+        (function() {
+            var currentPath = window.location.pathname;
+            var search = window.location.search;
+            var hash = window.location.hash;
+            var fullPath = currentPath + search + hash;
+            
+            // Don't redirect if we're already at root
+            if (currentPath === '/' || currentPath === '/index.html') {
+                return;
+            }
+            
+            // Store the path for the React app to handle
+            sessionStorage.setItem('redirect', fullPath);
+            
+            // Use replace to avoid adding to browser history
+            window.location.replace('/' + search + hash);
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="spinner"></div>
+        <h2>Loading Application</h2>
+        <p>Redirecting to mySage Client Portal...</p>
+    </div>
+</body>
+</html>
